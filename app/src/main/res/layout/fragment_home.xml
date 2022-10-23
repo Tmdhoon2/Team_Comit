@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.fragment.HomeFragment">
+
+    <data>
+        <variable
+            name="HomeFragment"
+            type="com.example.gitgit.view.fragment.HomeFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_home_since"
+            style="@style/Theme.GitGit.TextInputLayout"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/et_home_since"
+                style="@style/Theme.GitGit.EditText_Search"
+                android:hint="@string/home_since"
+                android:textSize="20sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/img_main_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/main_search"
+            android:onClick="@{() -> HomeFragment.initSinceButton()}"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="@id/textInputLayout_home_since"
+            app:layout_constraintEnd_toEndOf="@id/textInputLayout_home_since"
+            app:layout_constraintTop_toTopOf="@id/textInputLayout_home_since" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_user_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout_home_since"
+            tools:listitem="@layout/list_user" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
