@@ -1,11 +1,13 @@
 package com.example.gitgit.view.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,6 +42,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("TEST", "onViewCreated")
         binding.homeFragment = this
         initSinceButton()
         initRecyclerView()
@@ -53,15 +56,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     fun initSinceButton(){
         val since = binding.etHomeSince.text
+        hideKey()
         if(since.isNotEmpty()){
             userListViewModel.userList(Integer.parseInt(since.toString()))
-            Log.d("TEST", "onClick")
         }
     }
 
     fun initRecyclerView(){
         binding.rvHomeUserList.adapter = UserListAdapter(userList)
         binding.rvHomeUserList.layoutManager = LinearLayoutManager(this.requireContext())
+    }
+
+    fun hideKey(){
+        val imm : InputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
     private fun initSinceObserve(){

@@ -19,7 +19,6 @@ class UserListViewModel(private val userListRepository: UserListRepository) : Vi
         viewModelScope.launch {
             val response = userListRepository.userList(since)
             _userListResponse.value = response
-            Log.d("TEST",response.body()!!.get(0).login)
         }
     }
 }
