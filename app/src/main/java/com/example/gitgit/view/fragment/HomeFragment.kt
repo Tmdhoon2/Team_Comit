@@ -42,16 +42,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("TEST", "onViewCreated")
         binding.homeFragment = this
         initSinceButton()
         initRecyclerView()
         initSinceObserve()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("TEST", "onPause")
     }
 
     fun initSinceButton(){
@@ -75,7 +69,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initSinceObserve(){
         userListViewModel.userListResponse.observe(viewLifecycleOwner, Observer {
             when(it.code()){
-                200 -> userList.addAll(it.body()!!)
+                200 -> {
+                    initRecyclerView()
+                    userList.clear()
+                    userList.addAll(it.body()!!)
+                }
             }
         })
     }
