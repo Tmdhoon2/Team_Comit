@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gitgit.R
 import com.example.gitgit.databinding.ListUserBinding
 import com.example.gitgit.model.UserListResponse
-import com.example.gitgit.model.UserResponse
+import com.example.gitgit.view.MainActivity
+import com.example.gitgit.view.fragment.DetailFragment
 
 class UserListAdapter(private val arrayList : ArrayList<UserListResponse>) :
     RecyclerView.Adapter<UserListAdapter.UserListViewHolder>() {
