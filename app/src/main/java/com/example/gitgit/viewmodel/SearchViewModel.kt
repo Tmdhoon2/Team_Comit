@@ -23,10 +23,11 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
 
             }.onSuccess {
                 val response = searchRepository.search(userId)
-                _userResponse.value = response
-
-                _createdAt.value = response.body()!!.created_at.split("T")[0]
-
+                if(response.isSuccessful){
+                    _userResponse.value = response
+                    Log.d("TEST", response.code().toString())
+                    _createdAt.value = response.body()?.created_at?.split("T")?.get(0)
+                }
             }.onFailure {exception ->
                 Log.d("TEST", exception.message.toString())
 
