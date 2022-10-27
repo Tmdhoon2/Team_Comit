@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="FavoriteData"
+            type="com.example.gitgit.model.FavoriteData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/cimg_list_favorite_profile"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            loadImage="@{FavoriteData.avatar_url}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            style="@style/Theme.GitGit.TextView"
+            android:text="@{FavoriteData.name}"
+            android:textSize="24sp"
+            android:fontFamily="@font/happiness_bold"
+            app:layout_constraintTop_toTopOf="@id/cimg_list_favorite_profile"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/cimg_list_favorite_profile"
+            app:layout_constraintStart_toEndOf="@id/cimg_list_favorite_profile"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

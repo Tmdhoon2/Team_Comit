@@ -15,12 +15,10 @@ import com.example.gitgit.R
 import com.example.gitgit.base.BaseFragment
 import com.example.gitgit.databinding.FragmentHomeBinding
 import com.example.gitgit.model.UserListResponse
-import com.example.gitgit.model.UserResponse
 import com.example.gitgit.remote.UserListAdapter
 import com.example.gitgit.repository.UserListRepository
 import com.example.gitgit.viewmodel.UserListViewModel
 import com.example.gitgit.viewmodel.factory.UserListViewModelFactory
-import kotlin.math.sin
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 

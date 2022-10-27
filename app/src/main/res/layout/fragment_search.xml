@@ -96,6 +96,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/img_favorite"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:onClick="@{()->MainViewModel.favorite()}"
+                    android:layout_margin="24dp"
+                    favorite="@{MainViewModel.favorite}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/cimg_main_profile"
                     loadImage="@{MainViewModel.userResponse.body().avatar_url}"
