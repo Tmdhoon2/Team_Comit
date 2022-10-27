@@ -1,6 +1,8 @@
 package com.example.gitgit.viewmodel
 
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +12,7 @@ import com.example.gitgit.getPref
 import com.example.gitgit.repository.SearchRepository
 import com.example.gitgit.model.UserResponse
 import com.example.gitgit.putPref
+import com.example.gitgit.view.fragment.SearchFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -42,6 +45,7 @@ class SearchViewModel(
 
                     putPref(pref.edit(), "name", response.body()!!.login)
                     putPref(pref.edit(), "url", response.body()!!.avatar_url)
+                    putPref(pref.edit(), "profile_url", response.body()!!.html_url)
 
                     name = getPref(pref, "name", "").toString()
                     if (getPref(pref, name, false) as Boolean) {
@@ -64,6 +68,5 @@ class SearchViewModel(
             _favorite.value = R.drawable.ic_star_yellow
             putPref(pref.edit(), name, true)
         }
-
     }
 }

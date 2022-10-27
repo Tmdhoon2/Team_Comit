@@ -1,6 +1,8 @@
 package com.example.gitgit.view.fragment
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gitgit.R
 import com.example.gitgit.base.BaseFragment
 import com.example.gitgit.databinding.FragmentSearchBinding
+import com.example.gitgit.getPref
 import com.example.gitgit.model.FavoriteData
 import com.example.gitgit.remote.FavoriteAdapter
 import com.example.gitgit.repository.SearchRepository
@@ -35,7 +38,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         super.onViewCreated(view, savedInstanceState)
         binding.searchFragment = this
         binding.mainViewModel = searchViewModel
-        initSearchButton()
         observeSearch()
     }
 
@@ -59,5 +61,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
                 200 -> binding.imgMainBlock.setImageResource(0)
             }
         })
+    }
+
+    fun link(){
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getPref(pref, "profile_url", "").toString()))
+        startActivity(intent)
     }
 }

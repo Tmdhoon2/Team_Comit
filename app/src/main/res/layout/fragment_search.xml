@@ -313,6 +313,7 @@
                     android:background="@color/black"
                     android:fontFamily="@font/crimson"
                     android:gravity="center"
+                    android:onClick="@{()->SearchFragment.link()}"
                     android:text="@string/main_show_on_github"
                     android:textColor="@color/white"
                     android:textSize="18sp"
