@@ -6,9 +6,13 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.gitgit.R
 import com.example.gitgit.base.BaseFragment
 import com.example.gitgit.databinding.FragmentSearchBinding
+import com.example.gitgit.model.FavoriteData
+import com.example.gitgit.remote.FavoriteAdapter
 import com.example.gitgit.repository.SearchRepository
 import com.example.gitgit.viewmodel.SearchViewModel
 import com.example.gitgit.viewmodel.factory.SearchViewModelFactory
@@ -20,7 +24,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     }
 
     private val searchViewModelFactory : SearchViewModelFactory by lazy {
-        SearchViewModelFactory(searchRepository)
+        SearchViewModelFactory(searchRepository, pref)
     }
 
     private val searchViewModel : SearchViewModel by lazy {

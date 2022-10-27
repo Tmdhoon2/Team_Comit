@@ -25,6 +25,7 @@
 
             <EditText
                 android:id="@+id/et_home_since"
+                android:inputType="number"
                 style="@style/Theme.GitGit.EditText_Search"
                 android:hint="@string/home_since"
                 android:textSize="20sp" />
