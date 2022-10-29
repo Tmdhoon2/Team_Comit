@@ -13,5 +13,5 @@ data class UserResponse(
     val location: String,
     val login: String,
     val name: String,
-    val public_repos: Int
+    val public_repos: Int,
 )
